@@ -1,4 +1,4 @@
-# scripts-todo-things
+# scripts-todo-things (VPS version)
 
 ## 1. 🔒 check_ssl_expiry (CSE)
 
