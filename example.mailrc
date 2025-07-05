@@ -1,0 +1,68 @@
+###############################################################################
+# Mailutils `.mailrc` Example Configuration
+# Supports: Gmail SMTP, Custom SMTP with/without authentication
+# Author: Vinux DevOps
+###############################################################################
+
+###############################################################################
+# GMAIL SMTP CONFIGURATION (REQUIRES APP PASSWORD)
+###############################################################################
+# Uncomment and fill these if you're using Gmail's SMTP
+# set smtp=smtp://smtp.gmail.com:587
+# set smtp-use-starttls          # Enable STARTTLS (required for Gmail)
+# set smtp-auth=login            # Auth method
+# set smtp-auth-user="your-email@gmail.com"
+# set smtp-auth-password="your-app-password"   # Use an App Password, not your real Gmail password
+# set from="your-email@gmail.com"
+# set realname="Your Full Name (Optional)"
+# set ssl-verify=ignore          # Ignore cert warning (optional, not recommended for Gmail)
+
+
+###############################################################################
+# CUSTOM SMTP SERVER WITH AUTHENTICATION (E.g., mail@vinux.in)
+###############################################################################
+# Uncomment and fill these for your own secure SMTP server
+# set smtp=smtp://mail.vinux.in:587
+# set smtp-use-starttls
+# set smtp-auth=login
+# set smtp-auth-user="mail@vinux.in"
+# set smtp-auth-password="your-password"
+# set from="mail@vinux.in"
+# set realname="Vinux Admin (Optional)"
+# set ssl-verify=ignore          # Skip cert checks if using self-signed cert
+
+
+###############################################################################
+# CUSTOM SMTP SERVER WITHOUT AUTHENTICATION (Local server or IP whitelisted)
+###############################################################################
+# Use this section only if your SMTP server does **not require** auth
+# and you trust the network or use IP whitelisting (Postfix relayhost setup)
+# set smtp=smtp://mail.vinux.in:25
+# set smtp-use-starttls
+# set from="noreply@vinux.in"
+# set realname="Vinux Notification"
+# set ssl-verify=ignore          # Optional for self-signed TLS certs
+
+
+###############################################################################
+# OPTIONAL CONFIGURATION (Common to all setups)
+###############################################################################
+
+# Set custom Reply-To address
+# set replyto="support@vinux.in"
+
+# Set custom signature
+# set signature=~/.signature
+
+# Use a specific encoding (optional)
+# set charset="UTF-8"
+
+# Set default subject (if none provided)
+# set subject="(No Subject)"
+
+# Set debug to true to see SMTP conversation
+# set debug
+
+###############################################################################
+# END OF FILE
+###############################################################################
