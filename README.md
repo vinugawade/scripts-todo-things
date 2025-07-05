@@ -1,4 +1,6 @@
-# 🔒 check_ssl_expiry (CSE)
+# scripts-todo-things
+
+## 1. 🔒 check_ssl_expiry (CSE)
 
 A production-ready Bash script to monitor, report, and auto-renew SSL certificates managed via Let's Encrypt. It’s perfect for VPS/server admins who want to automate SSL expiry monitoring and receive timely email alerts before certs expire.
 
@@ -31,6 +33,25 @@ A production-ready Bash script to monitor, report, and auto-renew SSL certificat
    ```
 
 4. **You must be using Let's Encrypt**, and your certs should be under `/etc/letsencrypt/live`
+
+5. ✉️ Mailutils Configuration (`~/.mailrc`)
+
+   To enable SSL expiry alerts via email, you must configure your SMTP credentials in a `.mailrc` file. Here's how:
+
+   * 📄 Create `~/.mailrc`
+
+      ```bash
+      nano ~/.mailrc
+      ```
+
+   Choose your configuration based on your email provider:
+      * ✅ Gmail SMTP (Recommended with App Password)
+
+         > ⚠️ Google requires [App Passwords](https://support.google.com/accounts/answer/185833) if 2FA is enabled.
+
+      * ✅ Custom SMTP (e.g. `your@mail.com`)
+
+      * ✅ No Authentication SMTP (Local or Whitelisted IP)
 
 ## 🧰 Setup
 
@@ -66,6 +87,14 @@ Now you can run it using:
 sudo check_ssl_expiry -e you@example.com
 ```
 
+### 📁 Optional arguments
+
+| Flag        | Description                              | Default                         |
+|-------------|------------------------------------------|---------------------------------|
+| `-e`        | Email address to receive alerts (required) | —                               |
+| `-p`        | Path to certs                            | `/etc/letsencrypt/live`        |
+| `-d`        | Days before expiry to warn               | `15`                            |
+
 ## 🚀 Usage
 
 ### 🔎 Just check and alert
@@ -74,7 +103,7 @@ sudo check_ssl_expiry -e you@example.com
 sudo check_ssl_expiry -e you@example.com
 ```
 
-### 🔁 Auto-renew expiring certs (Default alert before 15 days)
+### 🔁 Auto-renew expiring certs
 
 ```bash
 sudo check_ssl_expiry -e you@example.com --auto
@@ -91,14 +120,6 @@ sudo check_ssl_expiry -e you@example.com --now
 ```bash
 sudo check_ssl_expiry -e you@example.com --now=yourdomain.com
 ```
-
-### 📁 Optional arguments
-
-| Flag        | Description                              | Default                         |
-|-------------|------------------------------------------|---------------------------------|
-| `-e`        | Email address to receive alerts (required) | —                               |
-| `-p`        | Path to certs                            | `/etc/letsencrypt/live`        |
-| `-d`        | Days before expiry to warn               | `15`                            |
 
 ## ⏱️ Systemd Timer Setup (Recommended)
 
@@ -187,4 +208,3 @@ sudo check_ssl_expiry -e you@example.com -d 90
 Feel free to fork or contribute!
 
 © [Vinay Gawade](https://github.com/vinugawade) · [GPL-3.0 license](LICENSE)
-# scripts-todo-things
